@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Toggle Example – Menu.js</title>
+  <link rel="stylesheet" href="examples.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css">
+
+  /* Hide collapsed elements */
+  [aria-expanded="false"] {
+    display: none;
+  }
+
+  /* Position buttons at top-right corner of menu parents */
+  .expand-parent {
+    position: relative;
+  }
+  .expand-parent .btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  /* Flip the toggle button icon when active */
+  .expand-parent .btn i {
+    transition: transform 0.3s ease;
+  }
+  .expand-parent .btn.active i {
+    transform: rotate(180deg);
+  }
+
+  </style>
+
+</head>
+<body>
+
+  <header class="navbar">
+
+    <!-- menu button -->
+    <button class="btn">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+      Menu
+    </button>
+    <!-- /menu button -->
+
+    <!-- menu -->
+    <nav class="menu" aria-expanded="false">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="#">Services</a>
+          <ul>
+            <li>
+              <a href="#">Pet Sitting</a>
+              <ul>
+                <li><a href="#">In Your Home</a></li>
+                <li><a href="#">Boarding</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Pet Grooming</a></li>
+            <li><a href="#">Pet Walking</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">About</a>
+          <ul>
+            <li><a href="#">Meet the Team</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- /menu -->
+
+  </header>
+
+  <main class="container">
+
+    <h1>Script</h1>
+    <pre>var menu = new Menu('.menu').toggle().expand({
+  buttons: true,
+  buttonLabel: '&lt;i class="fa fa-angle-down" aria-hidden="true"&gt;&lt;/i&gt;&lt;span class="sr-only"&gt;Toggle&lt;/span&gt;',
+  buttonClassActive: 'active'
+});</pre>
+
+    <h1>HTML</h1>
+    <pre>&lt;button&gt;Menu&lt;/button&gt;
+
+&lt;nav class="menu" aria-expanded="false"&gt;
+  ...
+&lt;/nav&gt;</pre>
+
+    <h1>CSS</h1>
+    <pre>/* Hide collapsed elements */
+[aria-expanded="false"] {
+  display: none;
+}
+
+/* Position expand button at corner of parent */
+.expand-parent {
+  position: relative;
+}
+.expand-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Flip the icon when active */
+.expand-btn i {
+  transition: transform 0.3s ease;
+}
+.expand-btn.active i {
+  transform: rotate(180deg);
+}</pre>
+
+  </main>
+
+  <!-- dependencies -->
+  <script src="../dist/menu.js"></script>
+
+  <!-- run the script -->
+  <script>
+  var menu = new Menu('.menu').toggle().expand({
+    buttons: true,
+    buttonLabel: '<i class="fa fa-angle-down" aria-hidden="true"></i><span class="sr-only">Toggle</span>',
+    buttonClass: 'btn',
+    buttonClassActive: 'active'
+  });
+  </script>
+
+</body>
+</html>

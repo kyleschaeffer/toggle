@@ -1,2 +1,2 @@
 # toggle
-A simple toggle script that can be used for menus, accordions, navigation, and more.
+A simple toggle script for menus, accordions, navigation, and more.
