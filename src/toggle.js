@@ -64,6 +64,7 @@ const Toggle = function(config = {}){
     // Expand
     if(expanded){
       if(this.options.single) this.blur()
+      if(this.options.singleSibling) this.blurSiblings(target)
       target.setAttribute('aria-expanded', 'true')
       if(this.options.targetClassExpanded) target.classList.add(this.options.targetClassExpanded)
       if(this.options.buttonClassExpanded) this.buttons.fromTarget(target).forEach((button) => button.classList.add(this.options.buttonClassExpanded))
@@ -112,7 +113,7 @@ const Toggle = function(config = {}){
       if(this.options.createButtons){
         let button = document.createElement('button')
         button.innerHTML = this.options.buttonContent
-        button.parentNode.insertBefore(button, target)
+        target.parentNode.insertBefore(button, target)
       }
 
       // Add target class
@@ -181,6 +182,7 @@ const Toggle = function(config = {}){
    * @return {void}
    */
   this.buttons.click = (e) => {
+    e.preventDefault()
     let button = this.buttons.fromClick(e)
     if(!button) return
     let targets = this.targets.fromButton(button)
@@ -205,12 +207,26 @@ const Toggle = function(config = {}){
 
   /**
    * Blur all targets
+   * @param {Event} e
    * @return {void}
    */
   this.blur = (e = null) => {
     if(e === null || (this.options.blur && this.options.blurFilter && !Utility.matches(e.target, this.options.blurFilter))){
       this.targets.setAll(false)
     }
+  }
+
+  /**
+   * Blur siblings of target parent
+   * @param {HTMLElement} target
+   * @return {void}
+   */
+  this.blurSiblings = (target) => {
+    Array.from(target.parentNode.parentNode.children).forEach((parent) => {
+      Array.from(parent.children).forEach((child) => {
+        if(Utility.matches(child, this.options.targetSelector)) this.targets.set(child, false)
+      })
+    })
   }
 
   // Listen for blur

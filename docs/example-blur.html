@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Toggle Example – Blur</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  <link rel="stylesheet" href="examples.css">
+  <style type="text/css">
+
+  /* Hide collapsed */
+  [aria-expanded="false"] {
+    display: none;
+  }
+
+  </style>
+  <!-- /Stylesheets -->
+
+</head>
+<body>
+
+  <!-- HTML -->
+  <header class="container">
+
+    <span class="context">
+
+      <button class="btn">Choose a Dessert</button>
+
+      <nav class="toggle">
+        <ul>
+          <li><a href="#">Pie</a></li>
+          <li><a href="#">Cake</a></li>
+          <li><a href="#">Ice Cream</a></li>
+        </ul>
+      </nav>
+
+    </span>
+
+  </header>
+  <!-- /HTML -->
+
+  <!-- Source code -->
+  <main class="container">
+
+    <h1>Script</h1>
+    <pre><code>var toggle = new Toggle({
+  blur: true
+})</code></pre>
+
+    <h1>HTML</h1>
+    <pre><code>&lt;button&gt;Choose a Dessert&lt;/button&gt;
+
+&lt;nav class="toggle"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Pie&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Cake&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Ice Cream&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+    <h1>CSS</h1>
+    <pre><code>/* Hide collapsed */
+[aria-expanded="false"] {
+  display: none;
+}</code></pre>
+
+  </main>
+  <!-- /Source code -->
+
+  <!-- Script -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="toggle.js"></script>
+  <script>
+
+  // Create the toggle
+  var toggle = new Toggle({
+    blur: true
+  })
+
+  </script>
+  <!-- /Script -->
+
+</body>
+</html>

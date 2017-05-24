@@ -1,5 +1,5 @@
 {
-  "name": "toggle",
+  "name": "toggle-js",
   "version": "1.0.0",
   "description": "A simple toggle script for menus, accordions, navigation, and more.",
   "main": "src/toggle.js",

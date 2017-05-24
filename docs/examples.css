@@ -8,11 +8,41 @@ body {
   line-height: 1.4;
 }
 
+/* links */
+a {
+  color: #2e97d2;
+  text-decoration: none;
+}
+
 /* headings */
-h1 {
+h1,
+h2 {
   font-size: 1.25rem;
   font-weight: 500;
   margin: 0 0 .2rem;
+}
+
+/* paragraphs */
+p {
+  margin: 0 0 1.5rem;
+}
+
+/* lists */
+p + ul {
+  list-style-type: square;
+  margin: 0 0 1.5rem;
+}
+
+p + ul li {
+  margin: 0 0 .5rem;
+}
+
+/* rules */
+hr {
+  background: rgba(0, 0, 0, 0.1);
+  border: 0;
+  height: 1px;
+  margin: 2.5rem 0;
 }
 
 /* code */
@@ -24,6 +54,20 @@ pre {
   margin: 0 0 1.5rem;
   overflow-x: auto;
   padding: 1.5rem;
+}
+
+p code {
+  background: #f5f5f5;
+  border-radius: 3px;
+  font-family: 'Fira Code', 'Lucida Console', monospace;
+  font-size: 14px;
+  padding: .1rem .25rem;
+}
+
+.hljs {
+  background-color: transparent;
+  overflow-x: inherit;
+  padding: 0;
 }
 
 /* container */
@@ -38,8 +82,14 @@ pre {
   background: #fff;
 }
 
+.navbar > .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 /* buttons */
-.btn {
+.btn,
+.menu .toggle-btn {
   display: inline-block;
   padding: 1rem 1.25rem;
   color: #fff;
@@ -47,13 +97,14 @@ pre {
   text-decoration: none;
 }
 
-button.btn {
+button.btn,
+.menu .toggle-btn {
   border: 0;
   cursor: pointer;
   font-size: inherit;
 }
 
-.menu .btn {
+.menu .toggle-btn {
   padding: .875rem 1.25rem;
 }
 
@@ -69,12 +120,14 @@ button.btn {
   padding: 0;
 }
 
+.menu ul ul {
+  background-color: rgba(0, 0, 0, 0.015);
+}
+
 .menu a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: block;
   padding: .75rem 1.25rem;
-  color: #2e97d2;
-  text-decoration: none;
 }
 
 .menu ul ul a {
@@ -86,15 +139,21 @@ button.btn {
 }
 
 /* horizontal menus */
+.menu.horizontal {
+  border-top: 0;
+}
+
 .menu.horizontal a {
   border-bottom: 0;
 }
 
 .menu.horizontal ul ul {
+  background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: .9rem;
   margin-top: 1px;
   padding: .5rem 0;
+  width: 140px;
 }
 
 .menu.horizontal ul ul ul {
@@ -107,17 +166,13 @@ button.btn {
   padding: .5rem 1.25rem;
 }
 
-/* expandables */
-.expand-section {
-  background: rgba(0, 0, 0, 0.04);
-}
-
 /* context menus */
 .context {
   display: inline-block;
 }
 
 .context .toggle {
+  background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 0.9rem;
   padding: .75rem 1.25rem;

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Toggle Example – Accordion Menu Buttons</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  <link rel="stylesheet" href="examples.css">
+  <style type="text/css">
+
+  /* Hide collapsed */
+  [aria-expanded="false"] {
+    display: none;
+  }
+
+  /* Position toggle buttons */
+  .toggle-parent {
+    position: relative;
+  }
+  .toggle-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  /* Flip the icon */
+  .toggle-btn i {
+    transition: transform 0.3s ease;
+  }
+  .toggle-btn-active i {
+    transform: rotate(180deg);
+  }
+
+  </style>
+  <!-- /Stylesheets -->
+
+</head>
+<body>
+
+  <!-- HTML -->
+  <header class="container">
+
+    <nav class="menu">
+      <ul>
+        <li>
+          <a href="#">Pie</a>
+          <ul>
+            <li><a href="#">Apple Pie</a></li>
+            <li>
+              <a href="#">Cherry Pie</a>
+              <ul>
+                <li><a href="#">With Pastry Crust</a></li>
+                <li><a href="#">With Graham Cracker Crust</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Pumpkin Pie</a></li>
+            <li><a href="#">Chocolate Pie</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Cake</a>
+          <ul>
+            <li>
+              <a href="#">Vanilla Cake</a>
+              <ul>
+                <li><a href="#">With Vanilla Icing</a></li>
+                <li><a href="#">With Chocolate Icing</a></li>
+                <li><a href="#">With Sprinkles</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Chocolate Cake</a></li>
+            <li><a href="#">Fruit Cake</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Ice Cream</a></li>
+      </ul>
+    </nav>
+
+  </header>
+  <!-- /HTML -->
+
+  <!-- Source code -->
+  <main class="container">
+
+    <h1>Script</h1>
+    <pre><code>var toggle = new Toggle({
+  buttonClass: 'toggle-btn',
+  buttonClassExpanded: 'toggle-btn-active',
+  buttonContent: '&lt;span class="sr-only"&gt;Toggle&lt;/span&gt;&lt;i class="fa fa-angle-down" aria-hidden="true"&gt;&lt;/i&gt;',
+  createButtons: true,
+  parentClass: 'toggle-parent',
+  targetSelector: '.menu ul ul'
+})</code></pre>
+
+    <h1>HTML</h1>
+    <pre><code>&lt;nav class="menu"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href="#"&gt;Pie&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Apple Pie&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href="#"&gt;Cherry Pie&lt;/a&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;With Pastry Crust&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;With Graham Cracker Crust&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Pumpkin Pie&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Chocolate Pie&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href="#"&gt;Cake&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;a href="#"&gt;Vanilla Cake&lt;/a&gt;
+          &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;With Vanilla Icing&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;With Chocolate Icing&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;With Sprinkles&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Chocolate Cake&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Fruit Cake&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Ice Cream&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+    <h1>CSS</h1>
+    <pre><code>/* Hide collapsed */
+[aria-expanded="false"] {
+  display: none;
+}
+
+/* Position toggle buttons */
+.toggle-parent {
+  position: relative;
+}
+.toggle-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Flip the icon */
+.toggle-btn i {
+  transition: transform 0.3s ease;
+}
+.toggle-btn-active i {
+  transform: rotate(180deg);
+}</code></pre>
+
+  </main>
+  <!-- /Source code -->
+
+  <!-- Script -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="toggle.js"></script>
+  <script>
+
+  // Create the toggle
+  var toggle = new Toggle({
+    buttonClass: 'toggle-btn',
+    buttonClassExpanded: 'toggle-btn-active',
+    buttonContent: '<span class="sr-only">Toggle</span><i class="fa fa-angle-down" aria-hidden="true"></i>',
+    createButtons: true,
+    parentClass: 'toggle-parent',
+    targetSelector: '.menu ul ul'
+  })
+
+  </script>
+  <!-- /Script -->
+
+</body>
+</html>

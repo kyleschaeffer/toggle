@@ -39,7 +39,7 @@ const Options = {
   /**
    * Elements matching this query selector will toggle the target on click; note
    * that this query selector applies only to siblings of the target by default;
-   * see "scope" option for additional configuration options
+   * see "scoped" option for additional configuration options
    * @type {String}
    */
   buttonSelector: 'button',
@@ -77,6 +77,15 @@ const Options = {
   single: false,
 
   /**
+   * Allow only a single target sibling to be expanded at one time; enabling
+   * this option will search the target parent's siblings for expanded targets
+   * and close them if they are open; this is especially useful when you have a
+   * multi-level navigation menu accordion
+   * @type {Boolean}
+   */
+  singleSibling: false,
+
+  /**
    * Class added to toggle targets
    * @type {String}
    */
@@ -89,7 +98,7 @@ const Options = {
   targetClassExpanded: null,
 
   /**
-   * Selector for toggle targets
+   * Query selector for toggle targets
    * @type {String}
    */
   targetSelector: '.toggle'
