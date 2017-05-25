@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Toggle Example – Accordion Menu Buttons</title>
+  <title>Toggle Recipe – Accordion Menu</title>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,21 +17,17 @@
     display: none;
   }
 
-  /* Position toggle buttons */
-  .toggle-parent {
-    position: relative;
-  }
-  .toggle-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
+  /* Add icon to parents */
+  .toggle-parent > a::after {
+    content: '\f107'; /* Font Awesome 'angle-down' */
+    display: inline-block;
+    font-family: 'FontAwesome';
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
   }
 
   /* Flip the icon */
-  .toggle-btn i {
-    transition: transform 0.3s ease;
-  }
-  .toggle-btn-active i {
+  .toggle-parent > a.toggle-btn-active::after {
     transform: rotate(180deg);
   }
 
@@ -43,6 +39,11 @@
 
   <!-- HTML -->
   <header class="container">
+
+    <div class="card">
+      <h1><strong>Recipe:</strong> Accordion Menu</h1>
+      <p>Use the <code>buttonSelector</code> option to provide a custom query selector for toggle buttons. You can use this in conjunction with other configuration options to create a multi-level accordion navigation menu.</p>
+    </div>
 
     <nav class="menu">
       <ul>
@@ -88,10 +89,8 @@
 
     <h1>Script</h1>
     <pre><code>var toggle = new Toggle({
-  buttonClass: 'toggle-btn',
   buttonClassExpanded: 'toggle-btn-active',
-  buttonContent: '&lt;span class="sr-only"&gt;Toggle&lt;/span&gt;&lt;i class="fa fa-angle-down" aria-hidden="true"&gt;&lt;/i&gt;',
-  createButtons: true,
+  buttonSelector: 'a',
   parentClass: 'toggle-parent',
   targetSelector: '.menu ul ul'
 })</code></pre>
@@ -139,21 +138,17 @@
   display: none;
 }
 
-/* Position toggle buttons */
-.toggle-parent {
-  position: relative;
-}
-.toggle-btn {
-  position: absolute;
-  right: 0;
-  top: 0;
+/* Add icon to parents */
+.toggle-parent > a::after {
+  content: '\f107'; /* Font Awesome 'angle-down' */
+  display: inline-block;
+  font-family: 'FontAwesome';
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
 }
 
 /* Flip the icon */
-.toggle-btn i {
-  transition: transform 0.3s ease;
-}
-.toggle-btn-active i {
+.toggle-parent > a.toggle-btn-active::after {
   transform: rotate(180deg);
 }</code></pre>
 
@@ -168,10 +163,8 @@
 
   // Create the toggle
   var toggle = new Toggle({
-    buttonClass: 'toggle-btn',
     buttonClassExpanded: 'toggle-btn-active',
-    buttonContent: '<span class="sr-only">Toggle</span><i class="fa fa-angle-down" aria-hidden="true"></i>',
-    createButtons: true,
+    buttonSelector: 'a',
     parentClass: 'toggle-parent',
     targetSelector: '.menu ul ul'
   })

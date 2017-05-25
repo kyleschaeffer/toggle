@@ -51,6 +51,13 @@ const Options = {
   createButtons: false,
 
   /**
+   * Enable to disable toggle target collapse; useful for patterns such as tabs
+   * and accordions where the target should stay open at all times
+   * @type {Boolean}
+   */
+  expandOnly: false,
+
+  /**
    * Class applied to toggle target's parent element
    * @type {String}
    */

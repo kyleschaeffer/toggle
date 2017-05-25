@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Toggle Recipe – Accordion</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+  <link rel="stylesheet" href="examples.css">
+  <style type="text/css">
+
+  /* Hide collapsed */
+  [aria-expanded="false"] {
+    display: none;
+  }
+
+  /* Add icon to headers */
+  .accordion-header::after {
+    content: '\f105'; /* Font Awesome 'angle-down' */
+    display: inline-block;
+    font-family: 'FontAwesome';
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  /* Flip the icon */
+  .accordion-header-active::after {
+    transform: rotate(90deg);
+  }
+
+  </style>
+  <!-- /Stylesheets -->
+
+</head>
+<body>
+
+  <!-- HTML -->
+  <header class="container">
+
+    <div class="card">
+      <h1><strong>Recipe:</strong> Accordion</h1>
+      <p>Toggle isn't just for navigation. Configure the default query selector options and make use of the <code>single</code> and <code>expandOnly</code> configuration options to create a simple accordion.</p>
+      <p>In this example, our buttons are not adjacent to the toggle target in the HTML structure. Instead, we set <code>buttonSelector</code> to <code>#{id}</code>, which enables <code>href</code> attribute pairing to our toggle target <code>id</code>. This works just like a normal anchor tag in HTML (<code>href="#some-id"</code> is paired to <code>id="some-id"</code>).</p>
+    </div>
+
+    <h3><a href="#pies" class="accordion-header">Pies</a></h3>
+    <div id="pies" class="accordion-panel" aria-expanded="true">
+      <h1>All About Pies</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus diam lacus, feugiat sit amet augue at, accumsan commodo metus. Pellentesque dignissim porttitor arcu. Aliquam euismod tempus urna, id commodo libero pharetra quis. Donec sem eros, luctus id varius ut, tempus ac tellus. Pellentesque risus est, varius eu arcu vitae, interdum interdum odio. Sed sit amet elementum orci. Maecenas tempor velit ullamcorper, pellentesque quam eget, ultrices orci. Etiam volutpat ex vel tincidunt varius. Donec et tempus ligula. Quisque congue non magna at aliquet.</p>
+      <p>Sed vestibulum dignissim lectus et consequat. Nam sed nisl aliquam, ultricies felis a, lacinia urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum vel ex bibendum mi imperdiet ornare. Nam et lectus eget turpis ultrices tempor. Duis et arcu pellentesque, vehicula ante sit amet, facilisis augue. Sed maximus efficitur justo nec pharetra. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus vel suscipit nibh.</p>
+    </div>
+
+    <h3><a href="#cakes" class="accordion-header">Cakes</a></h3>
+    <div id="cakes" class="accordion-panel">
+      <h1>All About Cakes</h1>
+      <p>Vivamus lacus nisi, semper at accumsan sed, pellentesque in magna. In sit amet est nec tortor finibus vehicula eu non dui. Sed dictum ac mi non finibus. Aliquam molestie sem eu euismod lacinia. Morbi gravida placerat mi ut luctus. Morbi a odio nisi. Ut quis elit ac enim congue consequat non vel nunc. Phasellus non sagittis lorem. In sit amet velit vel risus finibus lacinia. Duis in quam quis urna cursus fermentum eget non lorem. Nulla consectetur eleifend fringilla.</p>
+    </div>
+
+    <h3><a href="#ice-cream" class="accordion-header">Ice Cream</a></h3>
+    <div id="ice-cream" class="accordion-panel">
+      <h1>Let's Talk Ice Cream</h1>
+      <p>Donec sed felis mauris. Proin in neque at enim congue sodales volutpat vitae leo. Duis volutpat purus dictum neque volutpat, et volutpat nulla rhoncus. Morbi sagittis id sapien eget iaculis. Sed elementum ultrices magna sed rhoncus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin fermentum eu mi eu maximus. Aenean euismod velit at nulla laoreet, in tincidunt massa tempor. Donec nec sagittis augue. Aliquam erat volutpat. Cras id cursus ex.</p>
+    </div>
+
+  </header>
+  <!-- /HTML -->
+
+  <!-- Source code -->
+  <main class="container">
+
+    <h1>Script</h1>
+    <pre><code>var accordion = new Toggle({
+  buttonClassExpanded: 'accordion-header-active',
+  buttonSelector: '#{id}',
+  expandOnly: true,
+  single: true,
+  targetSelector: '.accordion-panel'
+})</code></pre>
+
+    <h1>HTML</h1>
+    <pre><code>&lt;h3&gt;&lt;a href="#pies"&gt;Pies&lt;/a&gt;&lt;/h3&gt;
+&lt;div id="pies" class="accordion-panel" aria-expanded="true"&gt;
+  &lt;h1&gt;All About Pies&lt;/h1&gt;
+  &lt;p&gt;Lorem ipsum...&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;&lt;a href="#cakes"&gt;Cakes&lt;/a&gt;&lt;/h3&gt;
+&lt;div id="cakes" class="accordion-panel"&gt;
+  &lt;h1&gt;All About Cakes&lt;/h1&gt;
+  &lt;p&gt;Vivamus lacus...&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;&lt;a href="#ice-cream"&gt;Ice Cream&lt;/a&gt;&lt;/h3&gt;
+&lt;div id="ice-cream" class="accordion-panel"&gt;
+  &lt;h1&gt;Let's Talk Ice Cream&lt;/h1&gt;
+  &lt;p&gt;Donec sed...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+    <h1>CSS</h1>
+    <pre><code>/* Hide collapsed */
+[aria-expanded="false"] {
+  display: none;
+}
+
+/* Add icon to headers */
+.accordion-header::after {
+  content: '\f105'; /* Font Awesome 'angle-down' */
+  display: inline-block;
+  font-family: 'FontAwesome';
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+/* Flip the icon */
+.accordion-header-active::after {
+  transform: rotate(90deg);
+}</code></pre>
+
+  </main>
+  <!-- /Source code -->
+
+  <!-- Script -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="toggle.js"></script>
+  <script>
+
+  // Create the accordion
+  var accordion = new Toggle({
+    buttonClassExpanded: 'accordion-header-active',
+    buttonSelector: '#{id}',
+    expandOnly: true,
+    single: true,
+    targetSelector: '.accordion-panel'
+  })
+
+  </script>
+  <!-- /Script -->
+
+</body>
+</html>

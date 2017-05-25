@@ -1,3 +1,10 @@
+/* box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* document */
 body {
   margin: 0;
@@ -22,6 +29,12 @@ h2 {
   margin: 0 0 .2rem;
 }
 
+h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
 /* paragraphs */
 p {
   margin: 0 0 1.5rem;
@@ -35,6 +48,13 @@ p + ul {
 
 p + ul li {
   margin: 0 0 .5rem;
+}
+
+/* cards */
+.card {
+  background: #fff;
+  margin: 0 0 1.5rem;
+  padding: 1.5rem;
 }
 
 /* rules */
@@ -74,7 +94,7 @@ p code {
 .container {
   max-width: 60rem;
   margin: auto;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 /* nav bar */
@@ -189,4 +209,22 @@ button.btn,
   display: block;
   padding: 0.5rem 0;
   text-decoration: none;
+}
+
+/* accordions */
+.accordion-header {
+  background: #2e97d2;
+  color: #fff;
+  display: block;
+  margin-top: 1px;
+  padding: 1rem;
+}
+
+.accordion-header::after {
+  float: right;
+}
+
+.accordion-panel {
+  background: #fff;
+  padding: 1.5rem;
 }

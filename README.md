@@ -4,7 +4,7 @@ Toggle is a lightweight JavaScript module that provides simple toggle interactio
 # Getting Started
 The easiest way to start using Toggle is to import via [npm](https://www.npmjs.com/):
 ```sh
-npm install toggle-js --save-dev
+npm i toggle-js
 ```
 
 Once installed, use Toggle in your scripts:
@@ -54,3 +54,6 @@ let toggle = new Toggle({
   targetSelector: '.toggle'
 })
 ```
+
+### Examples
+See [Toggle Recipes](https://oldrivercreative.github.io/toggle/) for common examples of Toggle configuration.

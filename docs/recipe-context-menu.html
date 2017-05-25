@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Toggle Example – Simple</title>
+  <title>Toggle Recipe – Context Menu</title>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,6 +17,25 @@
     display: none;
   }
 
+  /* Menu position */
+  .toggle-parent {
+    position: relative;
+  }
+  .toggle {
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+  }
+
+  /* Flip the icon */
+  .toggle-btn i {
+    transition: transform 0.3s ease;
+  }
+  .toggle-btn-active i {
+    transform: rotate(180deg);
+  }
+
   </style>
   <!-- /Stylesheets -->
 
@@ -26,9 +45,18 @@
   <!-- HTML -->
   <header class="container">
 
+    <div class="card">
+      <h1><strong>Recipe:</strong> Context Menu</h1>
+      <p>Add class names to your toggle elements to provide more control over presentation in your stylesheet. Classes are available for toggle buttons, targets, and parents. In this example, the added classes allow us to absolutely position the toggle target, as well as add a button icon flip effect on toggle.</p>
+      <p>Use <code>blur</code> to collapse expanded toggle targets on click-away.</p>
+    </div>
+
     <span class="context">
 
-      <button class="btn">Choose a Dessert</button>
+      <button class="btn">
+        Choose a Dessert
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </button>
 
       <nav class="toggle">
         <ul>
@@ -47,10 +75,18 @@
   <main class="container">
 
     <h1>Script</h1>
-    <pre><code>var toggle = new Toggle()</code></code></pre>
+    <pre><code>var toggle = new Toggle({
+  blur: true,
+  buttonClass: 'toggle-btn',
+  buttonClassExpanded: 'toggle-btn-active',
+  parentClass: 'toggle-parent'
+})</code></pre>
 
     <h1>HTML</h1>
-    <pre><code>&lt;button&gt;Choose a Dessert&lt;/button&gt;
+    <pre><code>&lt;button&gt;
+  Choose a Dessert
+  &lt;i class="fa fa-angle-down" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;/button&gt;
 
 &lt;nav class="toggle"&gt;
   &lt;ul&gt;
@@ -64,6 +100,25 @@
     <pre><code>/* Hide collapsed */
 [aria-expanded="false"] {
   display: none;
+}
+
+/* Menu position */
+.toggle-parent {
+  position: relative;
+}
+.toggle {
+  left: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+
+/* Flip the icon */
+.toggle-btn i {
+  transition: transform 0.3s ease;
+}
+.toggle-btn-active i {
+  transform: rotate(180deg);
 }</code></pre>
 
   </main>
@@ -76,7 +131,12 @@
   <script>
 
   // Create the toggle
-  var toggle = new Toggle()
+  var toggle = new Toggle({
+    blur: true,
+    buttonClass: 'toggle-btn',
+    buttonClassExpanded: 'toggle-btn-active',
+    parentClass: 'toggle-parent'
+  })
 
   </script>
   <!-- /Script -->

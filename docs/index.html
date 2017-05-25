@@ -28,12 +28,6 @@
     text-align: center;
   }
 
-  iframe {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 300px;
-  }
-
   </style>
 </head>
 <body>
@@ -48,66 +42,30 @@
   <main class="container">
 
     <h2>What is Toggle?</h2>
-    <p>Toggle is a lightweight JavaScript module that provides simple toggle interaction functionality using the accessible <code><a href="https://www.w3.org/TR/wai-aria/states_and_properties#aria-expanded">aria-expanded</a></code> HTML attribute. Toggle has no dependencies, and can be easily implemented into any workflow or framework.</p>
+    <p>Toggle is a lightweight JavaScript module that provides simple toggle interaction functionality using the accessible <code><a href="https://www.w3.org/TR/wai-aria/states_and_properties#aria-expanded">aria-expanded</a></code> HTML attribute. Toggle is pure JavaScript with no dependencies, and can be easily implemented into any workflow or framework.</p>
 
     <h2>Getting Started</h2>
-    <p>See <a href="https://github.com/oldrivercreative/toggle">Toggle on GitHub</a> for installation and configuration instructions.</p>
+    <p>See <a href="https://github.com/oldrivercreative/toggle">the GitHub repo</a> for installation and configuration instructions.</p>
 
     <hr>
 
-    <h2><a href="example-simple.html">Basic Example</a></h2>
-    <p>The most basic usage of Toggle transforms all targets with a class of <code>toggle</code> and adjacent <code>&lt;button&gt;</code> elements. The <code>aria-expanded</code> attribute can be used to control target visibility in your stylesheet.</p>
-    <iframe src="example-simple.html"></iframe>
-
-    <hr>
-
-    <h2><a href="example-selectors.html">Selecting Targets</a></h2>
-    <p>Specify a custom target query selector to override the default <code>.toggle</code> selector. You can create as many instances of Toggle as you like.</p>
-    <iframe src="example-selectors.html"></iframe>
-
-    <hr>
-
-    <h2><a href="example-blur.html">Blur</a></h2>
-    <p>Enable <code>blur</code> to collapse targets on click-away.</p>
-    <iframe src="example-blur.html"></iframe>
-
-    <hr>
-
-    <h2><a href="example-button-classes.html">Class Names</a></h2>
-    <p>Add class names to your toggle elements to provide more control over presentation in your stylesheet. Classes are available for toggle buttons, targets, and parents. We use the <a href="http://fontawesome.io/">Font Awesome icon font</a> in this example.</p>
-    <iframe src="example-button-classes.html"></iframe>
-
-    <hr>
-
-    <h2><a href="example-accordion-menu.html">Accordions</a></h2>
-    <p>Use the <code>buttonSelector</code> option to provide a custom query selector for toggle buttons. You can use this in conjunction with other configuration options to create a simple accordion or multi-level accordion navigation menu. We use the <a href="http://fontawesome.io/">Font Awesome icon font</a> in this example.</p>
-    <iframe src="example-accordion-menu.html"></iframe>
-
-    <hr>
-
-    <h2><a href="example-accordion-menu-buttons.html">Create Buttons</a></h2>
-    <p>Notice that in the previous example the accordion header itself is used as the toggle button and therefore is no longer clickable because the default click behavior is overriden by our Toggle script. Alternatively, we can use the <code>createButtons</code> option to automatically create a toggle button for each target found. This gives us the ability to create an accordion-style navigation menu with a separate clickable toggle button, allowing the accordion header link to remain clickable. We use the <a href="http://fontawesome.io/">Font Awesome icon font</a> in this example.</p>
-    <iframe src="example-accordion-menu-buttons.html"></iframe>
-
-    <hr>
-
-    <h2><a href="example-dropdown-menu.html">Dropdown Menus</a></h2>
-    <p>Enable the <code>blur</code> and <code>singleSibling</code> options to create a horizontal dropdown navigation menu.</p>
-    <iframe src="example-dropdown-menu.html"></iframe>
-
-    <hr>
-
-    <h2><a href="example-off-canvas-menu.html">Off-Canvas Accordion Menu</a></h2>
-    <p>Combine two toggles to create an off-canvas accordion menu. In this example, most of the work is done in our stylesheet.</p>
-    <iframe src="example-off-canvas-menu.html"></iframe>
-
-    <hr>
-
-    <h2><a href="example-unscoped.html">Target Scope</a></h2>
-    <p>If your toggle button is not adjacent to the toggle target in the HTML structure, you can use the <code>scoped</code> option to search the whole document for matches.</p>
-    <iframe src="example-unscoped.html"></iframe>
+    <h2>Toggle Recipes</h2>
+    <p>Toggle is deceptively simple. With a bit of configuration and a dash of CSS, it can be used for context menus, accordions, tabs, modals, mobile navigation menus, and more. Some of the most common Toggle patterns, or <em>recipes</em>, are shown below. Note that some recipes use the <a href="http://fontawesome.io/">Font Awesome icon font</a>. We'll start out basic and move into more complex patterns as we go.</p>
+    <ul>
+      <li><a href="recipe-toggle-panel.html">Toggle Panel</a></li>
+      <li><a href="recipe-context-menu.html">Context Menu</a></li>
+      <li><a href="recipe-accordion.html">Accordion</a></li>
+      <li><a href="recipe-accordion-menu.html">Accordion Menu</a></li>
+      <li><a href="recipe-accordion-menu-buttons.html">Accordion Menu Buttons</a></li>
+      <li><a href="example-dropdown-menu.html">Dropdown Menus</a></li>
+      <li><a href="example-off-canvas-menu.html">Off-Canvas Accordion Menu</a></li>
+      <li><a href="example-unscoped.html">Target Scope</a></li>
+    </ul>
 
   </main>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 </html>

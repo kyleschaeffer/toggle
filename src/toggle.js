@@ -1,4 +1,4 @@
-/*! toggle.js v1.0.0 | MIT License | https://github.com/oldrivercreative/toggle */
+/*! toggle.js v1.1.0 | MIT License | https://github.com/oldrivercreative/toggle */
 
 import Options from './options'
 import Utility from './utility'
@@ -58,6 +58,9 @@ const Toggle = function(config = {}){
    * @return {void}
    */
   this.targets.set = (target, expanded = null) => {
+    // Expand only
+    if(this.options.expandOnly && expanded === null && this.targets.get(target)) return
+
     // Get new expanded state
     if(expanded === null) expanded = !this.targets.get(target)
 
@@ -97,7 +100,17 @@ const Toggle = function(config = {}){
    * @return {Array}
    */
   this.targets.fromButton = (button) => {
+    // Unscoped
     if(!this.options.scoped) return this.targets.all()
+
+    // Scoped to [href]/[id] pair
+    if(this.options.buttonSelector === '#{id}'){
+      let href = button.getAttribute('href')
+      href = href ? href : button.getAttribute('data-href')
+      return Array.from(document.querySelectorAll(href))
+    }
+
+    // Scoped to parent
     let next = button.nextElementSibling
     if(next && Utility.matches(next, this.options.targetSelector)) return [ next ]
     else return []
@@ -122,10 +135,9 @@ const Toggle = function(config = {}){
       // Add parent class
       if(this.options.parentClass) target.parentNode.classList.add(this.options.parentClass)
 
-      // Collapse target
-      if(this.targets.get(target) !== true){
-        this.targets.set(target, false)
-      }
+      // Collapse/expand target
+      if(this.targets.get(target) !== true) this.targets.set(target, false)
+      else this.targets.set(target, true)
     })
   }
 
@@ -159,7 +171,13 @@ const Toggle = function(config = {}){
    * @return {Array}
    */
   this.buttons.fromTarget = (target) => {
+    // Unscoped, get all buttons
     if(!this.options.scoped) return this.buttons.all()
+
+    // Scoped to [href]/[id] pair
+    if(this.options.buttonSelector === '#{id}') return Array.from(document.querySelectorAll(`[href="#${target.id}"], [data-href="#${target.id}"]`))
+
+    // Scoped to parent
     let prev = target.previousElementSibling
     if(prev && Utility.matches(prev, this.options.buttonSelector)) return [ prev ]
     else return []
@@ -171,7 +189,18 @@ const Toggle = function(config = {}){
    * @return {HTMLElement|null}
    */
   this.buttons.fromClick = (e) => {
-    let button = Utility.matches(e.target, this.options.buttonSelector) ? e.target : Utility.closest(e.target, this.options.buttonSelector)
+    let button
+
+    // Scoped to [href]/[id] pair
+    if(this.options.buttonSelector === '#{id}'){
+      button = Utility.matches(e.target, '[href], [data-href]') ? e.target : Utility.closest(e.target, '[href], [data-href]')
+    }
+
+    // Scoped to parent
+    else{
+      button = Utility.matches(e.target, this.options.buttonSelector) ? e.target : Utility.closest(e.target, this.options.buttonSelector)
+    }
+
     if(button) return button
     else return null
   }
