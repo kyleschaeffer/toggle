@@ -39,7 +39,9 @@ const Options = {
   /**
    * Elements matching this query selector will toggle the target on click; note
    * that this query selector applies only to siblings of the target by default;
-   * see "scoped" option for additional configuration options
+   * see "scoped" option for additional configuration options; set this to
+   * "#{id}" to scope to any button whose [href] or [data-href] attribute
+   * reference the target's [id] (example: <a href="#one"> and <div id="one">)
    * @type {String}
    */
   buttonSelector: 'button',
