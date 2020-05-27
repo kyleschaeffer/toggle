@@ -56,4 +56,4 @@ let toggle = new Toggle({
 ```
 
 ### Examples
-See [Toggle Recipes](https://oldrivercreative.github.io/toggle/) for common examples of Toggle configuration.
+See [Toggle Recipes](https://kyleschaeffer.github.io/toggle/) for common examples of Toggle configuration.
